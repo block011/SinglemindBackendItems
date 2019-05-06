@@ -1,0 +1,12 @@
+CREATE TABLE `User_Table` (`UserID` int(11) NOT NULL AUTO_INCREMENT,`Username` varchar(32) NOT NULL,`Email` varchar(32) NOT NULL,`PhoneNumber` varchar(11) NOT NULL,`FirstName` varchar(32) DEFAULT NULL,`LastName` varchar(32) DEFAULT NULL,`CreationDate` date NOT NULL,`BirthDate` date DEFAULT NULL,PRIMARY KEY (`UserID`),UNIQUE KEY `Username` (`Username`),UNIQUE KEY `Email` (`Email`))
+
+
+CREATE TABLE `Event_Table` (
+  `EventID` int(12) unsigned NOT NULL AUTO_INCREMENT,
+  `UserID` int(12) unsigned NOT NULL,
+  `EventName` varchar(255) NOT NULL,
+  `EventDesc` varchar(255) DEFAULT NULL,
+  `EventDate` date NOT NULL,
+  `CreationDate` date NOT NULL,
+  PRIMARY KEY (`EventID`)
+) 
