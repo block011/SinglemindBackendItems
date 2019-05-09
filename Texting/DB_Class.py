@@ -3,6 +3,7 @@ import mysql.connector
 
 class database:
 
+    #initializes connection
     def Establish_Connection(self):
 
         self.__con = mysql.connector.connect (
