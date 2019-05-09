@@ -26,7 +26,10 @@ class database:
 
     #grabs an event by EventID
     def Grab_Event_Data(self,EventID):
-        print("Grabs event info from " + EventID)
+        query = "SELECT EventName, EventDesc FROM Event_Table WHERE Eventid = " = str(EventID)
+        self.__cur.execute(query)
+        result = self.__cur.fetchone()
+        return(result[0])
 
     def Grab_Most_Recent_Notifications(self):
         print("Grabs most recent notification info")
