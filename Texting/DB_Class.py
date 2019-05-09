@@ -13,7 +13,9 @@ class database:
             database = "SingleMind",
             auth_plugin = 'mysql_native_password'
             )
-        self.__cur = __con.cursor()
+
+        self.__cur = self.__con.cursor()
+        
 
     #grabs a user by UserID
     def Grab_User_Data(self,UserID):
