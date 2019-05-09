@@ -31,6 +31,7 @@ class database:
         result = self.__cur.fetchone()
         return(result[0])
 
+    #grabs most recent notifications
     def Grab_Most_Recent_Notifications(self):
         print("Grabs most recent notification info")
     #initialize DB
