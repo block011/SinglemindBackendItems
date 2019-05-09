@@ -9,3 +9,12 @@ con = mysql.connector.connect (
         auth_plugin = 'mysql_native_password'
         )
 
+test(var)
+test(var)
+
+
+
+
+
+def test(var):
+    print("This is test")
