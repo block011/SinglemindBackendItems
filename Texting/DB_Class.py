@@ -24,6 +24,7 @@ class database:
         result = self.__cur.fetchone()
         return(result[0])
 
+    #grabs an event by EventID
     def Grab_Event_Data(self,EventID):
         print("Grabs event info from " + EventID)
 
