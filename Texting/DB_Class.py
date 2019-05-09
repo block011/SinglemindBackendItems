@@ -18,8 +18,11 @@ class database:
         
 
     #grabs a user by UserID
-    def Grab_User_Data(self,UserID):
-        print("Grabs users info from "+UserID)
+    def Grab_User_PhoneNumber(self,UserID):
+        query = "SELECT PhoneNumber FROM User_Table WHERE UserID = " + str(UserID)
+        self.__cur.execute(query)
+        result = self.__cur.fetchone()
+        return(result[0])
 
     def Grab_Event_Data(self,EventID):
         print("Grabs event info from " + EventID)
