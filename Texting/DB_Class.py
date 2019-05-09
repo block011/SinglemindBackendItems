@@ -26,7 +26,7 @@ class database:
 
     #grabs an event by EventID
     def Grab_Event_Data(self,EventID):
-        query = "SELECT EventName, EventDesc FROM Event_Table WHERE Eventid = " = str(EventID)
+        query = "SELECT EventName, EventDesc FROM Event_Table WHERE EventID = " + str(EventID)
         self.__cur.execute(query)
         result = self.__cur.fetchone()
         return(result[0])
