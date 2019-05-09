@@ -8,7 +8,7 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_DB'] = 'SingleMind'
-app.config['MYSQL_DATABASE_HOST'] = '172.18.0.2'
+app.config['MYSQL_DATABASE_HOST'] = '10.142.0.5'
 
 
 #Initializing connection and cursor
@@ -294,6 +294,7 @@ def create_event():
     'EventDate':request.json.get('EventDate')
     }
 
+
     #Checks if Event Description is in place or not
     if event['EventDesc'] is None:
         event['EventDesc'] = "No description."
@@ -320,8 +321,31 @@ def create_event():
     query1 += query2
 
     cur.execute(query1)
-    con.commit()
+    cur.execute("SELECT LAST_INSERT_ID();")
+    #---------------------------
+    #Section is for adding notification
+    
+    #Creating dictionary to convert to JSON
+    item = [dict((cur.description[i][0], value)
+            for i, value in enumerate(row)) for row in cur.fetchall()]
+    
 
+
+
+
+    query = "INSERT INTO Notification_Table VALUES ('"
+    query += str(event['UserID']) 
+    query += "','" 
+    query +=  str(item[0]['LAST_INSERT_ID()']) 
+    query += "', 0 ,'" 
+    query += str(event['EventDate']) 
+    query += "');"
+    print(query)
+    cur.execute(query)
+
+    #---------------------------------
+
+    con.commit()
     #Success return 201
     return make_response(jsonify({'event': event}), 201)
 
@@ -440,4 +464,5 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=80)
+
