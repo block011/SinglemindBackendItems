@@ -9,8 +9,8 @@ class Twilio:
 
 
     def Send_Text(self, EventName, EventDesc, PhoneNumber):
-        account_sid = "ACf4a101bd3abc4f0793033e4b64e19ed9"
-        auth_token = "7796ab060c5c53cadc893ec7aa00cf2e"
+        account_sid = ""
+        auth_token = """
         client = Client(account_sid, auth_token)
 
         message = client.messages.create(
