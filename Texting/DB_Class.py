@@ -37,6 +37,8 @@ class database:
         self.__cur.execute(query)
         result = self.__cur.fetchall()
         query = "DELETE FROM Notification_Table WHERE HasNotified = 0 AND NotifyTime <= DATE_ADD(NOW(), INTERVAL 1 HOUR)"
+        self.__cur.execute(query)
+        self.__con.commit()
         return result
 
     #initialize DB
