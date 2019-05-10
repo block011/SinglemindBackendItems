@@ -29,7 +29,7 @@ class database:
         query = "SELECT EventName, EventDesc FROM Event_Table WHERE EventID = " + str(EventID)
         self.__cur.execute(query)
         result = self.__cur.fetchone()
-        return(result[0])
+        return(result)
 
     #grabs most recent notifications
     def Grab_Most_Recent_Notifications(self):
