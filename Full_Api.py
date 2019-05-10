@@ -340,7 +340,6 @@ def create_event():
     query += "', 0 ,'" 
     query += str(event['EventDate']) 
     query += "');"
-    print(query)
     cur.execute(query)
 
     #---------------------------------
