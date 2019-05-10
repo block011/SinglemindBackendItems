@@ -24,7 +24,8 @@ class Twilio:
         if result is None:
             return;
         for notify in result:
-            print("test")
+            eventdata = self.__DB.Grab_Event_Data(notify[1])
+            self.Send_Text(eventdata[0], eventdata[1], self.__DB.Grab_User_PhoneNumber(notify[0])) 
         return; 
 
 
