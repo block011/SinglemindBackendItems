@@ -6,4 +6,4 @@ from twilio.rest import Client
 class Twilio:
 
     def __init__(self):
-        #init
+        __DB = database()
