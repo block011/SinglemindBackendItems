@@ -31,4 +31,4 @@ class Twilio:
 
 
     def __init__(self):
-        __DB = database()
+        self.__DB = database()
