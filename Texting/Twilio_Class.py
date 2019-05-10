@@ -1,5 +1,7 @@
 #twilio class
 from DB_Class import *
+from twilio.rest import Client
+
 
 class Twilio:
 
