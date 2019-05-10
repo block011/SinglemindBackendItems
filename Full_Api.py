@@ -81,7 +81,7 @@ def create_task():
 
     #Creating our mysql string
     query1 = "INSERT INTO User_Table(CreationDate, "
-    query2 = "VALUES(CURDATE(),"
+    query2 = "VALUES(NOW(),"
 
     for x in user.keys():
         if user[x] is not None:
@@ -307,7 +307,7 @@ def create_event():
     #Creating mysql string
     #NOTE When refactoring switch all += with .append() for quicker times
     query1 = "INSERT INTO Event_Table(CreationDate, "
-    query2 = "VALUES(CURDATE(),"
+    query2 = "VALUES(NOW(),"
 
     for x in event.keys():
         query1 += x + ", "
