@@ -1,7 +1,17 @@
 from Twilio_Class import *
+import schedule
+import time
 
 def main():
-    db = database()
+    run = Twilio()
+    
+    schedule.every(5).seconds.do(run.Schedule)
+
+
+    while(True):
+        schedule.run_pending()
+        time.sleep(5)
+    
 
 
 
